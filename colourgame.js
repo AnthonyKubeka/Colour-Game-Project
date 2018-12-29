@@ -1,9 +1,4 @@
-const coloursList =[ "rgb(255, 0, 0)",
-                    "rgb(255, 255, 0)",
-                    "rgb(0, 255, 0)",
-                    "rgb(0, 255, 255)",
-                    "rgb(0, 0, 255)",
-                    "rgb(255, 0, 255)"];
+const coloursList = generateRandomColours(6);
 //the pickedColor is the colour we want to choose correctly
 var pickedColour = randomColPicker();
 var squares = document.querySelectorAll('.square');
@@ -37,11 +32,14 @@ coloursList.forEach((col, index)=>{
     });
     });
     
-//The changeColours function changes all the squares to the correct colour when it is clicked by the user
+//The changeColours function changes all the squares to the correct colour when it is clicked by the user, and updates the h1
 function changeColours(colour){
     for (let i = 0; i<squares.length; i++){
         squares[i].style.background = colour; 
     }
+  var h1 =  document.querySelector("h1");
+       h1.style.backgroundColor = colour;
+  
 }
 
 //The randomColPicker function will choose a random element of the coloursList array to be the picked / target colour 
@@ -51,6 +49,28 @@ function randomColPicker(){//choose between 1 and the array length (3 or 6, for 
 }
   
 
+//this function makes our array of colours
+
+function generateRandomColours(noOfColours){
+    //make array
+    //add noOfColours to array
+    //return array
+    var result = [];
+    for (let i = 0;i<noOfColours; i++){
+        result.push(randomColour());
+    }
+    return result; 
+}
+
+function randomColour(){//this function makes a singular random colour
+    //choose a red from 0-255, green, blue
+    
+    var red = Math.floor(Math.random()*256); 
+    var green = Math.floor(Math.random()*256); 
+    var blue = Math.floor(Math.random()*256); 
+    
+    return `rgb(${red}, ${green}, ${blue})`;
+}
 
 
 
