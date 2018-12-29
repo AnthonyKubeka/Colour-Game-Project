@@ -1,36 +1,63 @@
-const coloursList = generateRandomColours(6);
+var coloursList = generateRandomColours(6);
 //the pickedColor is the colour we want to choose correctly
 var pickedColour = randomColPicker();
 var squares = document.querySelectorAll('.square');
 var messageDisplay = document.getElementById('message'); //displays 'correct' or 'try again' to the user
+var resetButton = document.getElementById('reset');
+var h1 = document.querySelector('h1');
+  
 
-  //show our pickedColour in the header
-document.getElementById('pickedCol').textContent = pickedColour.toUpperCase();
+assignColors();
 
-
-coloursList.forEach((col, index)=>{
-        //randomly assign colour options
-    squares[index].style.backgroundColor = col;
+for (let i = 0; i<coloursList.length; i++){
+     
     
-//---------Click Events Logic-------//
+    //---------Click Square Events Logic-------//
       /*When we click on one of the squares we want to: 
       get the square we clicked on
       compare its colour to pickedColour
       if they are different we grey out the square, and provide handling
       if they are the same the player has won and we provide some handling
       */
-    squares[index].addEventListener('click',()=>{
+    squares[i].addEventListener('click',()=>{
         //grab the colour of the square that was clicked
-        var clickedColour  = squares[index].style.backgroundColor; //in a normal for loop (this.style would work)
+        var clickedColour  = squares[i].style.backgroundColor; 
         if (clickedColour === pickedColour){
             messageDisplay.textContent = 'Correct!';
             changeColours(pickedColour);
+            resetButton.textContent = 'Play Again?'
         }else{
-            squares[index].style.backgroundColor = '#232323';
+            squares[i].style.backgroundColor = '#232323';
             messageDisplay.textContent = 'Try Again!';
         }
     });
+}
+
+
+
+//Reset Button Handling
+    resetButton.addEventListener('click', ()=>{
+        resetGame();    
     });
+
+//-----------------Functions-------------------------------------//
+
+function resetGame(){
+        coloursList = generateRandomColours(6);
+        pickedColour = randomColPicker();
+        assignColors();
+        messageDisplay.textContent = '';
+        h1.style.background = '#232323';
+        resetButton.textContent = 'New Colours'
+
+}
+
+function assignColors(){
+for (let i = 0; i<coloursList.length; i++){
+      //randomly assign colour options
+    squares[i].style.backgroundColor = coloursList[i];
+}
+}
     
 //The changeColours function changes all the squares to the correct colour when it is clicked by the user, and updates the h1
 function changeColours(colour){
@@ -45,6 +72,8 @@ function changeColours(colour){
 //The randomColPicker function will choose a random element of the coloursList array to be the picked / target colour 
 function randomColPicker(){//choose between 1 and the array length (3 or 6, for now)
     var el = Math.floor(Math.random()*coloursList.length);
+    //show our pickedColour in the header
+    document.getElementById('pickedCol').textContent = coloursList[el].toUpperCase();
     return coloursList[el];
 }
   
