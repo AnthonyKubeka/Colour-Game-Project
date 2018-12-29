@@ -79,7 +79,7 @@ function resetGame(colours){
         pickedColour = randomColPicker();
         assignColors();
         messageDisplay.textContent = '';
-        h1.style.background = '#232323';
+        h1.style.background = 'steelblue';
         resetButton.textContent = 'New Colours'
 
 }

@@ -1,5 +1,7 @@
 body{
     background-color: #232323;
+    margin: 0; 
+    font-family: 'Nunito','Arial', sans-serif;
 }
 
 .square{
@@ -8,17 +10,32 @@ body{
     padding-bottom: 30%;
     float:left;
     margin:1.66%;
+    border-radius: 20px;
+    transition: background-color 0.4s;
+    -webkit-transition: background-color 0.4s;
+    -moz-transition: background-color 0.4s;
+    
 }
 
 #squareContainer{
     max-width: 600px;
-    margin: 0 auto; /* same as margin-top: 0, margin-bottom: 0, margin-left:auto, margin-right: auto;*/
+    margin: 20px auto; /* same as margin-top: 20px, margin-bottom: 20px, margin-left:auto, margin-right: auto;*/
+    
 }
 
 h1{
     color: white; 
     margin: 0 auto;
     text-align: center;
+    background: steelblue; 
+    font-weight: normal;
+    text-transform: uppercase;
+    
+}
+
+#message{
+    display: inline-block; /*gives a starting block even when 'empty' of content*/
+    width: 20%;
 }
 
 #stripe{
@@ -28,5 +45,34 @@ h1{
 }
 
 .selected{
-    background-color: blue; 
+   background-color: steelblue; 
+    color: white; 
 }
+
+#pickedCol{
+    font-size: 200%;
+}
+
+button{
+    border: none;
+    outline: none;
+    box-shadow: none;
+    background-color: white;
+    text-transform: uppercase;
+    height: 100%;
+    font-family: inherit;
+    font-weight: 800;
+    color: steelblue;
+    font-size: inherit;
+}
+
+button:hover{
+    background-color: steelblue; 
+    color: white; 
+    transition: background-color 0.5s;
+    -webkit-transition: background-color 0.5s;
+    -moz-transition: background-color 0.5s;
+
+}
+
+
