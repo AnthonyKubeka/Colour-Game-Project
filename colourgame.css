@@ -21,12 +21,12 @@ h1{
     text-align: center;
 }
 
-span{
-    color: white; 
-}
-
 #stripe{
     background: white; 
     text-align: center;
     height: 30px; 
+}
+
+.selected{
+    background-color: blue; 
 }
