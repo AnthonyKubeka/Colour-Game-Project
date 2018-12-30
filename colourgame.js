@@ -5,9 +5,8 @@ var squares = document.querySelectorAll('.square');
 var messageDisplay = document.getElementById('message'); //displays 'correct' or 'try again' to the user
 var resetButton = document.getElementById('reset');
 var h1 = document.querySelector('h1');
-var easyBtn = document.getElementById('easy');
-var hardBtn = document.getElementById('hard');
 var numSquares = 6; //6 for hard, 3 for easy
+var gameModeButtons = document.querySelectorAll(".mode");
   
 
 assignColors();
@@ -39,30 +38,32 @@ for (let i = 0; i<coloursList.length; i++){
 }
 
 //------------------Easy / Hard Mode Buttons Handling ------------------------//
-
-easyBtn.addEventListener('click', ()=>{
-        hardBtn.classList.remove('selected');
-        easyBtn.classList.add('selected');
-        numSquares = 3; 
-        resetGame(numSquares);
-        for (let i = 0; i<3; i++){
-            squares[i+3].style.display = 'none';
+for (let i =0; i<gameModeButtons.length; i++){
+    gameModeButtons[i].addEventListener('click',()=>{
+        //remove from all, then add to the one clicked. 
+        for (let i = 0; i<gameModeButtons.length;i++){
+            gameModeButtons[i].classList.remove('selected');
         }
-    
-    
-});
-
-hardBtn.addEventListener('click', ()=>{
-  
-        hardBtn.classList.add('selected');
-        easyBtn.classList.remove('selected');
+       gameModeButtons[i].classList.add('selected');
         
-        numSquares = 6; 
-        resetGame(numSquares);
-        for (let i = 0; i<3; i++){
+        if (gameModeButtons[i].textContent == 'Easy'){
+            numSquares = 3;
+            resetGame(numSquares);    
+            for (let i = 0; i<3; i++){
+            squares[i+3].style.display = 'none';
+            }
+        }else if (gameModeButtons[i].textContent == 'Hard'){
+            numSquares = 6; 
+            resetGame(numSquares);    
+            for (let i = 0; i<3; i++){
             squares[i+3].style.display = 'block';
+            }
         }
-});
+        
+        
+    });
+}
+
 
 
 //------------------Reset Button Handling-----------------------//
