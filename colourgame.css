@@ -23,7 +23,7 @@ body{
     
 }
 
-h1{
+h1, h2{
     color: white; 
     margin: 0 auto;
     text-align: center;
@@ -32,6 +32,8 @@ h1{
     text-transform: uppercase;
     
 }
+
+
 
 #message{
     display: inline-block; /*gives a starting block even when 'empty' of content*/
