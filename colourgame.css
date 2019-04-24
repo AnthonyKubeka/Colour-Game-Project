@@ -20,7 +20,14 @@ body{
 #squareContainer{
     max-width: 600px;
     margin: 20px auto; /* same as margin-top: 20px, margin-bottom: 20px, margin-left:auto, margin-right: auto;*/
+    flex: block;
     
+}
+
+
+.side-panel{
+    color: white;
+    flex: block;
 }
 
 h1, h2{
@@ -40,11 +47,12 @@ h1, h2{
     width: 20%;
 }
 
-#stripe{
+.stripe{
     background: white; 
     text-align: center;
     height: 30px; 
 }
+
 
 .selected{
    background-color: steelblue; 
