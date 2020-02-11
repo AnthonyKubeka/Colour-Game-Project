@@ -40,7 +40,7 @@ h1, h2{
     display: flex 
     flex-wrap: wrap;  
     justify-content: center;
-    padding: 50px;
+    padding: 100px;
 }
  
 
