@@ -37,12 +37,9 @@ h1, h2{
     background: steelblue; 
     font-weight: normal;
     text-transform: uppercase;
-    display: flex 
-    flex-wrap: wrap;  
-    justify-content: center;
-    padding: 100px;
+    
 }
- 
+
 
 
 #message{
